@@ -7,11 +7,12 @@
         class="date-picker"
         color="indigo"
         mode="date"
+        :available-dates='{start: new Date(1995, 6, 16), end: new Date()}'
         is-dark
         v-model="selectedDate"
       />
-      <p>Note: NASA started rating pictures in 2015</p>
-      <button class="btn btn-lg btn-primary">
+      <p>Note: NASA started posting pictures in 1995</p>
+      <button @click="getPhoto" class="btn btn-lg btn-primary">
         Ver foto <span class="material-icons align-center"> east </span>
       </button>
     </div>
@@ -31,6 +32,15 @@ export default {
       selectedDate: new Date(),
     };
   },
+  methods: {
+    getPhoto(){
+      let day = this.selectedDate.getDate();
+      let month = this.selectedDate.getMonth() + 1;
+      let year = this.selectedDate.getFullYear();
+      let strSelectedDate = `${year}-${month}-${day}`;
+      this.$router.push(`/nasaphoto/${strSelectedDate}`)
+    }
+  }
 };
 </script>
 
@@ -40,7 +50,7 @@ export default {
   background-image: url("~@/assets/spacewallpaper1.jpg");
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
+  height: calc(100vh + 50px);
   display: flex;
   align-items: center;
 }
@@ -57,7 +67,7 @@ export default {
   -webkit-backdrop-filter: blur(4px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
-  width: 50%;
+  width: 50vw;
   padding: 20px;
 }
 
@@ -81,8 +91,5 @@ export default {
   margin-left: 8px;
 }
 
-.date-picker {
-  width: 30vw;
-  height: 45vh;
-}
+
 </style>
