@@ -13,7 +13,7 @@
       />
       <p>Note: NASA started posting pictures in 1995</p>
       <button @click="getPhoto" class="btn btn-lg btn-primary">
-        Ver foto <span class="material-icons align-center"> east </span>
+        Search picture <span class="material-icons align-center"> east </span>
       </button>
     </div>
   </div>

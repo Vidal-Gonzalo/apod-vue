@@ -1,4 +1,6 @@
 # nasa-apod
+***
+In this project the user will be able to see the APOD (Astrology Picture of the Day) of the day he chooses. 
 
 ## Project setup
 ```
